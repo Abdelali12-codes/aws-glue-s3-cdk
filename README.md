@@ -1,10 +1,52 @@
-# steps to run this project on your laptop
+🚀 Running the Project Locally
+------------------------------
 
-1. go to src folder in configuration folder and changes values you have in config.py file based on your requirements
-2. deploy the cdk stack using cdk deploy command
-3. when deployment finish
-4. go to source bucket, the name of source bucket will be in config.py file under src/configuration folder
-5. create folder called (uploads for example), then inside that folder and upload the glue_example.csv file that you can find it at the root folder of the project
-6. after you upload the file in source bucket, will trigger lambda that will start glue crawler and glue job that will create the file in destionation bucket
-7. once the glue job finish succefully
-8. navigate to destination bucket (its name is on config.py that is under src/configuration folder), and you can verify that the file is there
+### Prerequisites
+
+*   AWS CLI configured with valid credentials
+    
+*   AWS CDK installed
+    
+*   Python installed
+    
+*   Required permissions for S3, Lambda, and AWS Glue
+    
+
+### Steps
+
+1.  **Update configuration**
+    
+    *   src/configuration
+        
+    *   Open config.py and update the configuration values based on your environment and requirements.
+        
+2.  cdk deploy
+    
+3.  **Locate the source S3 bucket**
+    
+    *   src/configuration/config.py
+        
+4.  **Upload the input file**
+    
+    *   In the source bucket, create a folder (for example: uploads)
+        
+    *   Upload the file glue\_example.csv, which is located at the root of the project, into this folder
+        
+5.  **Automatic processing**
+    
+    *   Uploading the file triggers a Lambda function that:
+        
+        *   Starts the AWS Glue crawler
+            
+        *   Runs the AWS Glue job
+            
+        *   Processes the file and writes the output to the destination bucket
+            
+6.  **Verify the output**
+    
+    *   Once the Glue job finishes successfully, navigate to the **destination S3 bucket**
+    ```        
+        src/configuration/config.py
+    ```
+        
+    *   Verify that the processed file exists in the destination bucket
